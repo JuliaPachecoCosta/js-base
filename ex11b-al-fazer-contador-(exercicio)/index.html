@@ -46,7 +46,7 @@
   <button id="newQuoteButton">Nova Citação</button>
 
   <!-- Script JavaScript embutido na página -->
-  <script>
+ <script>
     // Array de citações
     const quotes = [
       "A vida é o que acontece enquanto você está ocupado fazendo outros planos. – John Lennon",
@@ -56,8 +56,14 @@
       "Não importa o quão devagar você vá, desde que você não pare. – Confúcio"
     ];
 
-       // 1ª Digitação (Resolva aqui o exercício)
+    const button = document.getElementById('newQuoteButton'); // botão
+    const quote = document.getElementById('quote'); // constante do parágrafo
+    let currentText = 0; // estado atual 
 
+    button.addEventListener('click', () => { // escutador do botão
+      quote.textContent = quotes[currentText]; // pega o que estava escrito no parágrafo e substitui pelo que está armazenado na váriavel quotes.
+      currentText = (currentText + 1) % quotes.length //Soma 1 à posição atual. Se chegar ao fim da lista, volta para o zero, ou seja, looping
+    });
 
   </script>
 </body>
